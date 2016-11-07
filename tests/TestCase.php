@@ -28,7 +28,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('app.key', '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm');
 
         $app['config']->set('laravel-slack-slash-command', [
-            'token' => 'test-token',
+            'tokens' => ['test-command' => 'test-token'],
             'url' => 'test-url',
             'handlers' => [
                 \Spatie\SlashCommand\Handlers\CatchAll::class,

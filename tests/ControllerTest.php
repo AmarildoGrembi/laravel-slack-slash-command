@@ -25,7 +25,7 @@ class ControllerTest extends TestCase
     {
         $this->expectException(InvalidRequest::class);
 
-        $response = $this->call('POST', 'test-url', ['token' => 'wrong token']);
+        $response = $this->call('POST', 'test-url', ['token' => 'wrong token', 'command' => '/test-command']);
 
         if (isset($response->exception)) {
             throw $response->exception;
@@ -39,7 +39,7 @@ class ControllerTest extends TestCase
 
         $this->expectException(RequestCouldNotBeHandled::class);
 
-        $response = $this->call('POST', 'test-url', ['token' => 'test-token']);
+        $response = $this->call('POST', 'test-url', ['token' => 'test-token', 'command' => '/test-command']);
 
         if (isset($response->exception)) {
             throw $response->exception;
@@ -53,7 +53,7 @@ class ControllerTest extends TestCase
 
         $this->expectException(InvalidHandler::class);
 
-        $response = $this->call('POST', 'test-url', ['token' => 'test-token']);
+        $response = $this->call('POST', 'test-url', ['token' => 'test-token', 'command' => '/test-command']);
 
         if (isset($response->exception)) {
             throw $response->exception;
